@@ -12,15 +12,15 @@
 export default {
     computed: {
         count() {
-            return this.$store.state.nested.count
+            return this.$store.state.nested.d.count
         },
         doubleCount() {
-            return this.$store.getters['nested/increment']
+            return this.$store.getters['nested/d/doubleCount']
         }
     },
     methods: {
         increment() {
-            this.$store.commit('nested/increment')
+            this.$store.commit('nested/d/increment')
         }
     },
     mounted() {
