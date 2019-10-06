@@ -10,7 +10,8 @@
 <script>
 import A from './components/A.vue'
 import B from './components/B.vue'
-import NestedModuleD from './store/modules/nested/d'
+import storeD from './store/modules/nested/d'
+import storeMixin from './mixins/store'
 
 export default {
     name: 'app',
@@ -20,16 +21,10 @@ export default {
     },
     methods: {
         registerNestedModule() {
-            if (!(this.$store && this.$store.state && this.$store.state['nested'])) {
-                this.$store.registerModule(['nested'], {
-                    namespaced: true
-                })
-                console.info("register nested", this.$store)
-            }
-            if (!(this.$store && this.$store.state && this.$store.state['nested'] && this.$store.state.nested['d'])) {
-                this.$store.registerModule(['nested', 'd'], NestedModuleD)
-                console.info("register nested/d", this.$store)
-            }
+            this.$store.registerModule(['nested'], {
+                namespaced: true
+            })
+            this.$store.registerModule(['nested', 'd'], storeD)
         }
     }
 }
