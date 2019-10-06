@@ -11,7 +11,6 @@
 import A from './components/A.vue'
 import B from './components/B.vue'
 import storeD from './store/modules/nested/d'
-import storeMixin from './mixins/store'
 
 export default {
     name: 'app',
@@ -21,11 +20,14 @@ export default {
     },
     methods: {
         registerNestedModule() {
-            this.$store.registerModule(['nested'], {
+            this.registerStoreModule(['nested'], {
                 namespaced: true
             })
-            this.$store.registerModule(['nested', 'd'], storeD)
+            this.registerStoreModule(['nested', 'd'], storeD)
         }
+    },
+    mounted() {
+        console.info(this)
     }
 }
 </script>

@@ -1,12 +1,9 @@
 export default {
     methods: {
-      registerStoreModule (moduleName, storeModule)
-      {
-        const store = this.$store;
-  
+      registerStoreModule (moduleName, storeModule) {  
         if (!_.get(this.$store.state, moduleName))
         {
-          store.registerModule(moduleName, storeModule);
+          this.$store.registerModule(moduleName, storeModule);
         }
       }
     }
