@@ -1,5 +1,5 @@
 <template>
-<div v-if="$store.state.nested">
+<div>
     <div>
         <h4 style="display: inline-block;">nested/d:</h4>
         <button @click="increment">{{ count }}</button>
@@ -9,7 +9,15 @@
 </template>
 
 <script>
+import storeD from './nested/d'
+
 export default {
+    created() {
+        this.registerStoreModule(['nested', 'd'], storeD)
+    },
+    destroy() {
+        this.$log("unregistrieren???? Oder werden die autom. zerstört? glaube nicht")
+    },
     computed: {
         count() {
             return this.$store.state.nested.d.count

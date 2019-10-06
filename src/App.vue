@@ -2,7 +2,6 @@
 <div id="app">
     <A />
     <hr>
-    <button @click="registerNestedModule">Register nested/d</button>
     <B />
 </div>
 </template>
@@ -10,7 +9,6 @@
 <script>
 import A from './components/A.vue'
 import B from './components/B.vue'
-import storeD from './store/modules/nested/d'
 
 export default {
     name: 'app',
@@ -18,13 +16,15 @@ export default {
         A,
         B
     },
-    methods: {
-        registerNestedModule() {
-            this.registerStoreModule(['nested', 'd'], storeD)
+    data() {
+        return {
+            TODO: "global, lokal"
         }
     },
+    methods: {},
     mounted() {
         console.info(this)
+        console.info(this.TODO)
     }
 }
 </script>

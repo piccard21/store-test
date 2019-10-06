@@ -16,6 +16,7 @@ export default {
                 }
             })
         }
+        // root module
         else if(_.isString(moduleName)) {
           this.$store.registerModule(moduleName, storeModule);
         }
