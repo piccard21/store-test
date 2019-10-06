@@ -5,13 +5,11 @@ import _ from 'lodash'
 import storeMixin from './mixins/store'
 
 Vue.prototype._ = _
-
+Vue.prototype.$log = console.log.bind(console)
 
 Vue.config.productionTip = false
 
-
 Vue.mixin(storeMixin); 
-
 
 new Vue({
   store,

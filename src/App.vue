@@ -20,9 +20,6 @@ export default {
     },
     methods: {
         registerNestedModule() {
-            this.registerStoreModule(['nested'], {
-                namespaced: true
-            })
             this.registerStoreModule(['nested', 'd'], storeD)
         }
     },
